@@ -26,6 +26,14 @@ const Statistics = ({good, neutral, bad}) => {
 
   // Counting total reviews
   let totalRevs = good + bad + neutral
+  if (totalRevs === 0) {
+    return (
+      <div>
+        <h1>Statistics</h1>
+        <p>No feedback given</p>
+      </div>
+    )
+  }
 
   return (
     <div>

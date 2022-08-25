@@ -22,6 +22,14 @@ const getAverage = ({good, neutral, bad}) => {
   return avg
 }
 
+const StatisticLine = ( {text, value} ) => {
+  return (
+    <div>
+      <p>{text} {value}</p>
+    </div>
+  )
+}
+
 const Statistics = ({good, neutral, bad}) => {
 
   // Counting total reviews
@@ -38,12 +46,12 @@ const Statistics = ({good, neutral, bad}) => {
   return (
     <div>
       <h1>Statistics</h1>
-      <p>Good {good}</p>
-      <p>Neutral {neutral}</p>
-      <p>Bad {bad}</p>
-      <p>All {totalRevs}</p>
-      <p>Average {getAverage({good, neutral, bad})}</p>
-      <p>Positive {good/totalRevs}</p>
+      <StatisticLine text='good' value={good} />
+      <StatisticLine text='neutral' value={neutral} />
+      <StatisticLine text='bad' value={bad} />
+      <StatisticLine text='all' value={totalRevs} />
+      <StatisticLine text='average' value={getAverage({good, neutral, bad})} />
+      <StatisticLine text='positive' value={good/totalRevs} />
     </div>
   )
 }

@@ -24,9 +24,7 @@ const getAverage = ({good, neutral, bad}) => {
 
 const StatisticLine = ( {text, value} ) => {
   return (
-    <div>
-      <p>{text} {value}</p>
-    </div>
+    <td>{text} {value}</td>
   )
 }
 
@@ -43,15 +41,32 @@ const Statistics = ({good, neutral, bad}) => {
     )
   }
 
-  return (
+  return(
     <div>
       <h1>Statistics</h1>
-      <StatisticLine text='good' value={good} />
-      <StatisticLine text='neutral' value={neutral} />
-      <StatisticLine text='bad' value={bad} />
-      <StatisticLine text='all' value={totalRevs} />
-      <StatisticLine text='average' value={getAverage({good, neutral, bad})} />
-      <StatisticLine text='positive' value={good/totalRevs*100 + ' %'} />
+
+      <table>
+        <tbody>
+          <tr>
+            <StatisticLine text='good' value={good} />
+          </tr>
+          <tr>
+            <StatisticLine text='neutral' value={neutral} />
+          </tr>
+          <tr>
+            <StatisticLine text='bad' value={bad} />
+          </tr>
+          <tr>
+            <StatisticLine text='all' value={totalRevs} />
+          </tr>
+          <tr>
+            <StatisticLine text='average' value={getAverage({good, neutral, bad})} />
+          </tr>
+          <tr>
+            <StatisticLine text='positive' value={good/totalRevs*100 + ' %'} />
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }
@@ -69,7 +84,6 @@ function App() {
       <Button handleClick={() => setBad(bad+1)} text='bad' />
 
       <Statistics good = {good} neutral = {neutral} bad = {bad} />
-
     </div>
   )
 }

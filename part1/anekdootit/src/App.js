@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const getRandomInt = ({maxNum}) => {
+  // Get random number between 0 to no. of anecdotes
   let rand = Math.floor(Math.random()*maxNum)
   return rand
 }
@@ -19,6 +20,7 @@ const findVotes = (scoreArray) => {
 const App = () => {
   
   const updateLine = () => {
+    // Generate index number for new random anecdote and set it as selected
     let i = getRandomInt({maxNum})
     return setSelected(i)
   }
